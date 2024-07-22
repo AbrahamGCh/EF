@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Listado de estudiantes</h1>
+<ul>
+    {% for estudiante in estudiantes %}
+        <li>{{ estudiante.nombre }} {{ estudiante.apellido }}  - 
+            Sexo: {{ estudiante.estado|yesno:"Masculino,Femenino" }} - 
+            <a href="{% url 'eliminar_estudiante' id=estudiante.id %}" class="btn btn-delete">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}
