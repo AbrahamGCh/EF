@@ -9,3 +9,6 @@ def saludo(request):
 
 def integrantes(request):
     return render(request, 'integrantes.html')
+
+def create_articulo(request):
+    return render(request, 'create_articulo.html')
